@@ -116,9 +116,9 @@ def create_resume():
     
     contact_info = """
     <b>Data Science Graduate | Machine Learning Enthusiast</b><br/>
-    📧 anurag.mishra@email.com | 📱 +91 98765 43210<br/>
-    🔗 linkedin.com/in/anurag-mishra | 💻 github.com/anuragmishra<br/>
-    📍 Vellore, Tamil Nadu, India
+    📧 officiallyanurag1@gmail.com | 📱 +91 9911210461<br/>
+    🔗 linkedin.com/in/anuragmishra02 | 💻 github.com/OPanurag<br/>
+    📍 Gurgaon, Haryan, India
     """
     story.append(Paragraph(contact_info, contact_style))
     
@@ -138,15 +138,15 @@ def create_resume():
     story.append(Paragraph("EDUCATION", section_style))
     
     # Education details
-    story.append(Paragraph("Bachelor of Technology in Computer Science & Engineering", job_title_style))
-    story.append(Paragraph("Vellore Institute of Technology (VIT), Vellore", company_style))
-    story.append(Paragraph("2020 - 2024 | CGPA: 8.5/10", date_style))
+    story.append(Paragraph("Bachelor of Technology in Computer Science & Engineering Specialisation in Artificial Intelligence and Machine Learning", job_title_style))
+    story.append(Paragraph("Vellore Institute of Technology (VIT)", company_style))
+    story.append(Paragraph("2021 - 2025 | Percentage: 83.5%", date_style))
     
     education_details = [
-        "Specialized in Data Science and Machine Learning with focus on statistical analysis",
+        "Specialized in Data Science and Machine Learning with focus on statistical analysis and LLM",
         "Relevant Coursework: Data Structures, Algorithms, Database Management, Machine Learning, Deep Learning, Big Data Analytics",
-        "Final Year Project: Predictive Analytics for Academic Performance using Ensemble Methods",
-        "Active member of Data Science Club and participated in multiple technical workshops"
+        "Final Year Project: Lane Detection System using Deep Learning",
+        "Active member of Omdena Contributors Club, Data Science Club and participated in multiple technical workshops"
     ]
     
     for detail in education_details:

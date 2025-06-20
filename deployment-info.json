@@ -1,0 +1,17 @@
+{
+  "deployment_date": "2025-06-20T23:30:07.391457",
+  "version": "1.0.0",
+  "status": "ready",
+  "files": {
+    "html": true,
+    "css": true,
+    "js": true,
+    "readme": true,
+    "resume": false
+  },
+  "notes": [
+    "Portfolio website for Anurag Mishra",
+    "Data Science graduate from VIT",
+    "Optimized for global recruitment"
+  ]
+}
