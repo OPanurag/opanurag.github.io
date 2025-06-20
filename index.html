@@ -476,192 +476,213 @@
         </div>
     </section>
 
-    <!-- Experience section with interactive cards -->
-    <section id="experience" class="experience">
+    <!-- Experience & Achievements section with side-by-side timeline -->
+    <section id="experience" class="experience-achievements">
         <div class="container">
-            <h2 class="section-title">Professional Experience</h2>
+            <h2 class="section-title">Experience & Achievements</h2>
             <p class="section-subtitle">
-                Click on any card to explore my professional journey and achievements in detail
+                My professional journey and key accomplishments in data science and machine learning
             </p>
             
-            <div class="experience-cards">
-                <!-- Current Position - Kounsel -->
-                <div class="experience-card" data-experience="kounsel">
-                    <div class="card-header">
-                        <div class="company-logo">
-                            <i class="fas fa-briefcase"></i>
-                        </div>
-                        <div class="card-info">
-                            <h3>Graduate Data Scientist</h3>
-                            <h4>Kounsel</h4>
-                            <span class="duration">Oct 2024 – Present</span>
-                            <span class="location">California, US</span>
-                        </div>
-                        <div class="card-status current">
-                            <span>Current</span>
-                        </div>
-                    </div>
-                    <div class="card-preview">
-                        <p>Developing LLM solutions for medical benefits and recipe generation...</p>
-                    </div>
-                    <div class="card-details">
-                        <div class="company-link">
-                            <a href="https://kounsel.io" target="_blank">
-                                <i class="fas fa-external-link-alt"></i> kounsel.io
-                            </a>
-                        </div>
-                        <div class="responsibilities">
-                            <h5>Key Responsibilities & Achievements:</h5>
-                            <ul>
-                                <li>Utilized GCP and specialized NLP libraries to scale and optimize the LLM development process</li>
-                                <li>Developing a Large Language Model (LLM) focused on medical benefits, especially in recipe and diet generation</li>
-                                <li>Extracting and structuring nutritional data from diverse sources to build a large-scale ingredient nutrition dataset</li>
-                                <li>Collaborated with medical professionals & researchers ensuring accuracy & relevance of dietary recommendations</li>
-                            </ul>
-                        </div>
-                        <div class="tech-stack">
-                            <h5>Technologies Used:</h5>
-                            <div class="tech-tags">
+            <div class="timeline-container">
+                <!-- Experience Column (Left) -->
+                <div class="timeline-column experience-column">
+                    <h3 class="column-title">
+                        <i class="fas fa-briefcase"></i>
+                        Professional Experience
+                    </h3>
+                    
+                    <!-- Current Position - Kounsel -->
+                    <div class="timeline-card experience-card">
+                        <div class="timeline-date">Oct 2024 – Present</div>
+                        <div class="card-content">
+                            <div class="card-header">
+                                <div class="company-logo">
+                                    <i class="fas fa-briefcase"></i>
+                                </div>
+                                <div class="card-info">
+                                    <h4>Graduate Data Scientist</h4>
+                                    <h5>Kounsel</h5>
+                                    <span class="location">California, US</span>
+                                </div>
+                                <div class="status-badge current">Current</div>
+                            </div>
+                            <p class="card-description">
+                                Developing Large Language Models focused on medical benefits and recipe generation. 
+                                Utilizing GCP and specialized NLP libraries to scale LLM development processes.
+                            </p>
+                            <div class="achievements">
+                                <ul>
+                                    <li>Built large-scale ingredient nutrition datasets from diverse sources</li>
+                                    <li>Collaborated with medical professionals for AI-driven dietary recommendations</li>
+                                    <li>Optimized LLM development process using GCP and NLP frameworks</li>
+                                </ul>
+                            </div>
+                            <div class="tech-stack">
                                 <span class="tech-tag">Python</span>
                                 <span class="tech-tag">GCP</span>
                                 <span class="tech-tag">NLP</span>
                                 <span class="tech-tag">LLM</span>
-                                <span class="tech-tag">Data Engineering</span>
+                            </div>
+                            <div class="card-links">
+                                <a href="https://kounsel.io" target="_blank" class="card-link">
+                                    <i class="fas fa-external-link-alt"></i> Company Website
+                                </a>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Previous Position - Omdena -->
-                <div class="experience-card" data-experience="omdena">
-                    <div class="card-header">
-                        <div class="company-logo">
-                            <i class="fas fa-robot"></i>
-                        </div>
-                        <div class="card-info">
-                            <h3>Machine Learning Engineer – Intern</h3>
-                            <h4>Omdena</h4>
-                            <span class="duration">Jul 2024 – Sep 2024</span>
-                            <span class="location">California, US</span>
-                        </div>
-                        <div class="card-status completed">
-                            <span>Completed</span>
-                        </div>
-                    </div>
-                    <div class="card-preview">
-                        <p>Developed AudioShield project for deepfake audio detection...</p>
-                    </div>
-                    <div class="card-details">
-                        <div class="company-link">
-                            <a href="https://www.omdena.com" target="_blank">
-                                <i class="fas fa-external-link-alt"></i> omdena.com
-                            </a>
-                        </div>
-                        <div class="responsibilities">
-                            <h5>Key Responsibilities & Achievements:</h5>
-                            <ul>
-                                <li>Worked on "AudioShield" project to distinguish deepfake audio from original audio samples</li>
-                                <li>Utilized XGBoost to optimize audio threat detection, reducing false positives by 25%</li>
-                                <li>Enhanced audio classification model with a 20% accuracy improvement through feature engineering and tuning</li>
-                            </ul>
-                        </div>
-                        <div class="project-link">
-                            <a href="https://huggingface.co/spaces/savinshynu/audioshield-hugg" target="_blank">
-                                <i class="fas fa-external-link-alt"></i> View AudioShield Demo
-                            </a>
-                        </div>
-                        <div class="tech-stack">
-                            <h5>Technologies Used:</h5>
-                            <div class="tech-tags">
+                    <!-- Previous Position - Omdena -->
+                    <div class="timeline-card experience-card">
+                        <div class="timeline-date">Jul 2024 – Sep 2024</div>
+                        <div class="card-content">
+                            <div class="card-header">
+                                <div class="company-logo">
+                                    <i class="fas fa-robot"></i>
+                                </div>
+                                <div class="card-info">
+                                    <h4>Machine Learning Engineer – Intern</h4>
+                                    <h5>Omdena</h5>
+                                    <span class="location">California, US</span>
+                                </div>
+                                <div class="status-badge completed">Completed</div>
+                            </div>
+                            <p class="card-description">
+                                Developed AudioShield project for deepfake audio detection using advanced machine learning techniques.
+                            </p>
+                            <div class="achievements">
+                                <ul>
+                                    <li>Reduced false positives by 25% using XGBoost optimization</li>
+                                    <li>Improved model accuracy by 20% through feature engineering</li>
+                                    <li>Deployed AudioShield demo on Hugging Face platform</li>
+                                </ul>
+                            </div>
+                            <div class="tech-stack">
                                 <span class="tech-tag">Python</span>
                                 <span class="tech-tag">XGBoost</span>
                                 <span class="tech-tag">Audio Processing</span>
                                 <span class="tech-tag">Hugging Face</span>
-                                <span class="tech-tag">Machine Learning</span>
+                            </div>
+                            <div class="card-links">
+                                <a href="https://www.omdena.com" target="_blank" class="card-link">
+                                    <i class="fas fa-external-link-alt"></i> Company Website
+                                </a>
+                                <a href="https://huggingface.co/spaces/savinshynu/audioshield-hugg" target="_blank" class="card-link">
+                                    <i class="fas fa-play"></i> View Demo
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Education Card -->
-                <div class="experience-card" data-experience="education">
-                    <div class="card-header">
-                        <div class="company-logo">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
-                        <div class="card-info">
-                            <h3>Bachelor's of Technology</h3>
-                            <h4>Vellore Institute of Technology</h4>
-                            <span class="duration">2021 – 2025</span>
-                            <span class="location">Vellore, India</span>
-                        </div>
-                        <div class="card-status education">
-                            <span>83.5%</span>
+                <!-- Achievements Column (Right) -->
+                <div class="timeline-column achievements-column">
+                    <h3 class="column-title">
+                        <i class="fas fa-trophy"></i>
+                        Achievements & Recognition
+                    </h3>
+                    
+                    <!-- Professional Certifications -->
+                    <div class="timeline-card achievement-card">
+                        <div class="timeline-date">2022 – 2024</div>
+                        <div class="card-content">
+                            <div class="card-header">
+                                <div class="company-logo">
+                                    <i class="fas fa-certificate"></i>
+                                </div>
+                                <div class="card-info">
+                                    <h4>Professional Certifications</h4>
+                                    <h5>Multiple Platforms</h5>
+                                    <span class="location">Online Learning</span>
+                                </div>
+                                <div class="status-badge certified">4+ Certs</div>
+                            </div>
+                            <p class="card-description">
+                                Completed industry-recognized certifications to enhance technical skills and stay updated with latest trends.
+                            </p>
+                            <div class="achievements">
+                                <ul>
+                                    <li><strong>Data Science</strong> – IBM Professional Certificate</li>
+                                    <li><strong>Python Programming</strong> – Google Professional Certificate</li>
+                                    <li><strong>Applied Machine Learning</strong> – University of Michigan</li>
+                                    <li><strong>SQL</strong> – Kaggle Learn Certification</li>
+                                </ul>
+                            </div>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Data Science</span>
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Machine Learning</span>
+                                <span class="tech-tag">SQL</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="card-preview">
-                        <p>Computer Science Engineering with AI & ML specialization...</p>
-                    </div>
-                    <div class="card-details">
-                        <div class="responsibilities">
-                            <h5>Specialization & Achievements:</h5>
-                            <ul>
-                                <li>Specialized in Artificial Intelligence and Machine Learning</li>
-                                <li>Maintained consistent academic performance with 83.5% overall percentage</li>
-                                <li>Completed coursework in Data Structures, Algorithms, Machine Learning, Deep Learning</li>
-                                <li>Participated in multiple technical workshops and data science competitions</li>
-                            </ul>
-                        </div>
-                        <div class="tech-stack">
-                            <h5>Key Subjects:</h5>
-                            <div class="tech-tags">
+
+                    <!-- Education Achievement -->
+                    <div class="timeline-card achievement-card">
+                        <div class="timeline-date">2021 – 2025</div>
+                        <div class="card-content">
+                            <div class="card-header">
+                                <div class="company-logo">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <div class="card-info">
+                                    <h4>Bachelor's of Technology</h4>
+                                    <h5>Vellore Institute of Technology</h5>
+                                    <span class="location">Vellore, India</span>
+                                </div>
+                                <div class="status-badge education">83.5%</div>
+                            </div>
+                            <p class="card-description">
+                                Computer Science Engineering with specialization in Artificial Intelligence and Machine Learning.
+                            </p>
+                            <div class="achievements">
+                                <ul>
+                                    <li>Maintained 83.5% overall academic performance</li>
+                                    <li>Specialized in AI & ML with advanced coursework</li>
+                                    <li>Participated in technical workshops and competitions</li>
+                                    <li>Completed capstone projects in data science</li>
+                                </ul>
+                            </div>
+                            <div class="tech-stack">
                                 <span class="tech-tag">Data Structures</span>
                                 <span class="tech-tag">Algorithms</span>
                                 <span class="tech-tag">Machine Learning</span>
                                 <span class="tech-tag">Deep Learning</span>
-                                <span class="tech-tag">Database Systems</span>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Certifications Card -->
-                <div class="experience-card" data-experience="certifications">
-                    <div class="card-header">
-                        <div class="company-logo">
-                            <i class="fas fa-certificate"></i>
-                        </div>
-                        <div class="card-info">
-                            <h3>Professional Certifications</h3>
-                            <h4>Multiple Platforms</h4>
-                            <span class="duration">2022 – 2024</span>
-                            <span class="location">Online Learning</span>
-                        </div>
-                        <div class="card-status certified">
-                            <span>4+ Certs</span>
-                        </div>
-                    </div>
-                    <div class="card-preview">
-                        <p>Industry-recognized certifications in Data Science and ML...</p>
-                    </div>
-                    <div class="card-details">
-                        <div class="responsibilities">
-                            <h5>Completed Certifications:</h5>
-                            <ul>
-                                <li><strong>Data Science</strong> – IBM Professional Certificate</li>
-                                <li><strong>Python</strong> – Google Professional Certificate</li>
-                                <li><strong>Applied Machine Learning in Python</strong> – University of Michigan</li>
-                                <li><strong>SQL</strong> – Kaggle Learn Certification</li>
-                            </ul>
-                        </div>
-                        <div class="tech-stack">
-                            <h5>Certification Areas:</h5>
-                            <div class="tech-tags">
-                                <span class="tech-tag">Data Science</span>
-                                <span class="tech-tag">Python Programming</span>
-                                <span class="tech-tag">Machine Learning</span>
-                                <span class="tech-tag">SQL</span>
-                                <span class="tech-tag">Data Analytics</span>
+                    <!-- Hackathons & Competitions -->
+                    <div class="timeline-card achievement-card">
+                        <div class="timeline-date">2023 – 2024</div>
+                        <div class="card-content">
+                            <div class="card-header">
+                                <div class="company-logo">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <div class="card-info">
+                                    <h4>Hackathons & Competitions</h4>
+                                    <h5>Various Platforms</h5>
+                                    <span class="location">National & International</span>
+                                </div>
+                                <div class="status-badge hackathon">Multiple</div>
+                            </div>
+                            <p class="card-description">
+                                Participated in various data science hackathons and coding competitions to enhance practical skills.
+                            </p>
+                            <div class="achievements">
+                                <ul>
+                                    <li>Participated in 5+ national-level data science hackathons</li>
+                                    <li>Developed end-to-end ML solutions under time constraints</li>
+                                    <li>Collaborated with diverse teams on complex problems</li>
+                                    <li>Gained experience in rapid prototyping and deployment</li>
+                                </ul>
+                            </div>
+                            <div class="tech-stack">
+                                <span class="tech-tag">Rapid Prototyping</span>
+                                <span class="tech-tag">Team Collaboration</span>
+                                <span class="tech-tag">Problem Solving</span>
+                                <span class="tech-tag">ML Deployment</span>
                             </div>
                         </div>
                     </div>

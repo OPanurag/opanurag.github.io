@@ -596,44 +596,94 @@ html {
     font-weight: 500;
 }
 
-/* Experience Section Styles - Modern Card Design */
-.experience {
+/* Experience & Achievements Section - Timeline Design */
+.experience-achievements {
     padding: 6rem 0;
-    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    background: var(--background-light);
 }
 
-.experience-cards {
+.timeline-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
     margin-top: 3rem;
-}
-
-.experience-card {
-    background: white;
-    border-radius: 16px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    cursor: pointer;
-    overflow: hidden;
     position: relative;
 }
 
-.experience-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+/* Central dividing line */
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--primary-color), #6366f1);
+    transform: translateX(-50%);
+    z-index: 1;
 }
 
-.experience-card.expanded {
-    transform: scale(1.02);
-    z-index: 10;
+.timeline-column {
+    position: relative;
+}
+
+.column-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.column-title i {
+    color: var(--primary-color);
+    font-size: 1.25rem;
+}
+
+/* Timeline Cards - Similar to Project Cards */
+.timeline-card {
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-md);
+    margin-bottom: 2rem;
+    overflow: hidden;
+    transition: var(--transition);
+    position: relative;
+}
+
+.timeline-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-xl);
+}
+
+/* Timeline Date Badge */
+.timeline-date {
+    position: absolute;
+    top: -10px;
+    right: 1rem;
+    background: var(--primary-color);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    z-index: 2;
+    box-shadow: var(--shadow-sm);
+}
+
+.card-content {
+    padding: 2rem;
 }
 
 .card-header {
     display: flex;
     align-items: flex-start;
-    padding: 1.5rem;
-    border-bottom: 1px solid #f1f5f9;
+    gap: 1rem;
+    margin-bottom: 1rem;
     position: relative;
 }
 
@@ -645,7 +695,6 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 1rem;
     flex-shrink: 0;
 }
 
@@ -659,136 +708,89 @@ html {
     min-width: 0;
 }
 
-.card-info h3 {
-    font-size: 1.1rem;
+.card-info h4 {
+    font-size: 1.2rem;
     font-weight: 600;
     color: var(--text-primary);
     margin-bottom: 0.25rem;
     line-height: 1.3;
 }
 
-.card-info h4 {
+.card-info h5 {
     font-size: 1rem;
     font-weight: 500;
     color: var(--primary-color);
     margin-bottom: 0.5rem;
 }
 
-.duration {
-    display: block;
+.location {
     font-size: 0.85rem;
     color: var(--text-secondary);
-    margin-bottom: 0.25rem;
 }
 
-.location {
-    display: block;
-    font-size: 0.8rem;
-    color: var(--text-muted);
-}
-
-.card-status {
+/* Status Badges */
+.status-badge {
     position: absolute;
-    top: 1rem;
-    right: 1rem;
+    top: 0;
+    right: 0;
     padding: 0.25rem 0.75rem;
-    border-radius: 20px;
+    border-radius: 0 var(--border-radius) 0 15px;
     font-size: 0.75rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
-.card-status.current {
+.status-badge.current {
     background: linear-gradient(135deg, #10b981, #059669);
     color: white;
 }
 
-.card-status.completed {
+.status-badge.completed {
     background: linear-gradient(135deg, #3b82f6, #2563eb);
     color: white;
 }
 
-.card-status.education {
-    background: linear-gradient(135deg, #f59e0b, #d97706);
-    color: white;
-}
-
-.card-status.certified {
+.status-badge.certified {
     background: linear-gradient(135deg, #8b5cf6, #7c3aed);
     color: white;
 }
 
-.card-preview {
-    padding: 0 1.5rem 1.5rem;
+.status-badge.education {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: white;
 }
 
-.card-preview p {
+.status-badge.hackathon {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+}
+
+.card-description {
     color: var(--text-secondary);
-    font-size: 0.9rem;
-    line-height: 1.5;
-    margin: 0;
-}
-
-.card-details {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    background: #f8fafc;
-}
-
-.experience-card.expanded .card-details {
-    max-height: 1000px;
-    padding: 1.5rem;
-}
-
-.company-link {
+    line-height: 1.6;
     margin-bottom: 1.5rem;
 }
 
-.company-link a,
-.project-link a {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 0.9rem;
-    transition: color 0.2s ease;
+.achievements {
+    margin-bottom: 1.5rem;
 }
 
-.company-link a:hover,
-.project-link a:hover {
-    color: #4338ca;
-}
-
-.responsibilities h5,
-.tech-stack h5 {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--text-primary);
-    margin-bottom: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.responsibilities ul {
+.achievements ul {
     list-style: none;
     padding: 0;
-    margin: 0 0 1.5rem 0;
+    margin: 0;
 }
 
-.responsibilities li {
+.achievements li {
     position: relative;
     padding-left: 1.5rem;
     margin-bottom: 0.5rem;
-    font-size: 0.9rem;
-    line-height: 1.5;
     color: var(--text-secondary);
+    line-height: 1.5;
 }
 
-.responsibilities li::before {
+.achievements li::before {
     content: '▸';
     position: absolute;
     left: 0;
@@ -796,31 +798,94 @@ html {
     font-weight: bold;
 }
 
-.tech-tags {
+.tech-stack {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
+    margin-bottom: 1.5rem;
 }
 
 .tech-tag {
-    background: white;
+    background: var(--background-light);
     color: var(--primary-color);
     padding: 0.25rem 0.75rem;
-    border-radius: 20px;
+    border-radius: 15px;
     font-size: 0.8rem;
     font-weight: 500;
     border: 1px solid #e2e8f0;
-    transition: all 0.2s ease;
+    transition: var(--transition);
 }
 
 .tech-tag:hover {
     background: var(--primary-color);
     color: white;
-    transform: translateY(-1px);
+    transform: translateY(-2px);
 }
 
-.project-link {
-    margin-bottom: 1.5rem;
+.card-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--primary-color);
+    border-radius: 20px;
+    transition: var(--transition);
+}
+
+.card-link:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Experience Column Specific Styling */
+.experience-column .timeline-card {
+    margin-right: 1rem;
+}
+
+.experience-column .timeline-card::after {
+    content: '';
+    position: absolute;
+    right: -2rem;
+    top: 50%;
+    width: 12px;
+    height: 12px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: var(--shadow-sm);
+    transform: translateY(-50%);
+    z-index: 3;
+}
+
+/* Achievements Column Specific Styling */
+.achievements-column .timeline-card {
+    margin-left: 1rem;
+}
+
+.achievements-column .timeline-card::after {
+    content: '';
+    position: absolute;
+    left: -2rem;
+    top: 50%;
+    width: 12px;
+    height: 12px;
+    background: #6366f1;
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: var(--shadow-sm);
+    transform: translateY(-50%);
+    z-index: 3;
 }
 
 .timeline-content p {
@@ -1080,10 +1145,24 @@ html {
         grid-template-columns: 1fr;
     }
     
-    /* Experience Cards Tablet Responsive */
-    .experience-cards {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 1.5rem;
+    /* Timeline Tablet Responsive */
+    .timeline-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .timeline-container::before {
+        display: none;
+    }
+    
+    .experience-column .timeline-card,
+    .achievements-column .timeline-card {
+        margin: 0;
+    }
+    
+    .experience-column .timeline-card::after,
+    .achievements-column .timeline-card::after {
+        display: none;
     }
     
     .nav-menu {
@@ -1148,18 +1227,26 @@ html {
         height: 250px;
     }
     
-    /* Experience Cards Responsive */
-    .experience-cards {
+    /* Timeline Mobile Responsive */
+    .timeline-container {
         grid-template-columns: 1fr;
         gap: 1.5rem;
     }
     
-    .experience-card {
-        margin: 0 10px;
+    .timeline-container::before {
+        display: none;
     }
     
-    .card-header {
-        padding: 1.25rem;
+    .column-title {
+        font-size: 1.25rem;
+    }
+    
+    .timeline-card {
+        margin: 0 10px 1.5rem 10px;
+    }
+    
+    .card-content {
+        padding: 1.5rem;
     }
     
     .company-logo {
@@ -1167,14 +1254,19 @@ html {
         height: 40px;
     }
     
-    .card-info h3 {
+    .card-info h4 {
         font-size: 1rem;
     }
     
-    .card-status {
+    .timeline-date {
         position: static;
-        margin-top: 0.5rem;
-        align-self: flex-start;
+        display: inline-block;
+        margin-bottom: 1rem;
+    }
+    
+    .experience-column .timeline-card::after,
+    .achievements-column .timeline-card::after {
+        display: none;
     }
     
     .projects-grid {
