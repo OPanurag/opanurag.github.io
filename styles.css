@@ -743,6 +743,15 @@ html {
     padding: 2rem;
 }
 
+.card-footer {
+    padding: 1rem 2rem;
+    border-top: 1px solid #e2e8f0;
+    background: #f8fafc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .card-header {
     display: flex;
     align-items: flex-start;
@@ -794,15 +803,14 @@ html {
 
 /* Status Badges */
 .status-badge {
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 0.25rem 0.75rem;
-    border-radius: 0 var(--border-radius) 0 15px;
-    font-size: 0.75rem;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    box-shadow: var(--shadow-sm);
 }
 
 .status-badge.current {
