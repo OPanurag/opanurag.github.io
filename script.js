@@ -409,7 +409,7 @@ function initializeAnimations() {
     }, observerOptions);
     
     // Observe elements for animation
-    const animateElements = document.querySelectorAll('.skill-category, .project-card, .timeline-card, .contact-item');
+    const animateElements = document.querySelectorAll('.skill-category, .project-card, .timeline-card, .certification-card, .contact-card, .social-card');
     animateElements.forEach(el => {
         observer.observe(el);
     });
@@ -428,7 +428,9 @@ function addAnimationStyles() {
         .skill-category,
         .project-card,
         .timeline-card,
-        .contact-item {
+        .certification-card,
+        .contact-card,
+        .social-card {
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.6s ease, transform 0.6s ease;
@@ -437,7 +439,9 @@ function addAnimationStyles() {
         .skill-category.animate,
         .project-card.animate,
         .timeline-card.animate,
-        .contact-item.animate {
+        .certification-card.animate,
+        .contact-card.animate,
+        .social-card.animate {
             opacity: 1;
             transform: translateY(0);
         }
