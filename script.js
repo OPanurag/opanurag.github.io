@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeContactForm();
     initializeAnimations();
     initializeTypingEffect();
+    initializeExperienceCards();
     
 });
 
@@ -712,6 +713,98 @@ window.addEventListener('online', function() {
 window.addEventListener('offline', function() {
     showNotification('Connection lost. Some features may not work.', 'error');
 });
+
+/**
+ * Initialize interactive experience cards
+ */
+function initializeExperienceCards() {
+    const experienceCards = document.querySelectorAll('.experience-card');
+    
+    experienceCards.forEach(card => {
+        // Add click event to toggle card expansion
+        card.addEventListener('click', function(e) {
+            // Don't expand if clicking on links
+            if (e.target.closest('a')) {
+                return;
+            }
+            
+            // Close other expanded cards first
+            experienceCards.forEach(otherCard => {
+                if (otherCard !== card) {
+                    otherCard.classList.remove('expanded');
+                }
+            });
+            
+            // Toggle current card
+            card.classList.toggle('expanded');
+            
+            // Smooth scroll to card if expanding and card is not fully visible
+            if (card.classList.contains('expanded')) {
+                setTimeout(() => {
+                    const cardRect = card.getBoundingClientRect();
+                    const windowHeight = window.innerHeight;
+                    
+                    // If card bottom is below viewport, scroll to show it
+                    if (cardRect.bottom > windowHeight) {
+                        card.scrollIntoView({ 
+                            behavior: 'smooth', 
+                            block: 'nearest' 
+                        });
+                    }
+                }, 300); // Wait for expansion animation
+            }
+        });
+        
+        // Add keyboard navigation support
+        card.setAttribute('tabindex', '0');
+        card.setAttribute('role', 'button');
+        card.setAttribute('aria-expanded', 'false');
+        
+        card.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                card.click();
+                
+                // Update aria-expanded attribute
+                const isExpanded = card.classList.contains('expanded');
+                card.setAttribute('aria-expanded', isExpanded.toString());
+            }
+        });
+        
+        // Add hover effects for better UX
+        card.addEventListener('mouseenter', function() {
+            if (!card.classList.contains('expanded')) {
+                card.style.transform = 'translateY(-4px)';
+            }
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            if (!card.classList.contains('expanded')) {
+                card.style.transform = '';
+            }
+        });
+    });
+    
+    // Close expanded cards when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.experience-card')) {
+            experienceCards.forEach(card => {
+                card.classList.remove('expanded');
+                card.setAttribute('aria-expanded', 'false');
+            });
+        }
+    });
+    
+    // Handle escape key to close expanded cards
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            experienceCards.forEach(card => {
+                card.classList.remove('expanded');
+                card.setAttribute('aria-expanded', 'false');
+            });
+        }
+    });
+}
 
 // Export functions for potential external use
 window.portfolioUtils = {

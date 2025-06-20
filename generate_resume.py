@@ -2,6 +2,7 @@
 """
 Resume Generator Script for Anurag Mishra
 This script generates a professional PDF resume using Python libraries.
+Updated with actual professional details and experience.
 """
 
 from reportlab.lib.pagesizes import letter, A4
@@ -17,13 +18,13 @@ import os
 def create_resume():
     """
     Create a professional PDF resume for Anurag Mishra
-    This function generates a comprehensive resume with all sections
+    This function generates a comprehensive resume with all sections using actual professional details
     """
     
-    # Define file path for the resume
+    # Define file path for the resume PDF output
     filename = "resume.pdf"
     
-    # Create document with letter size and margins
+    # Create document with letter size and standard margins for professional appearance
     doc = SimpleDocTemplate(
         filename,
         pagesize=letter,
@@ -33,10 +34,10 @@ def create_resume():
         bottomMargin=0.75*inch
     )
     
-    # Define custom styles for different sections
+    # Define custom styles for different sections to ensure consistent formatting
     styles = getSampleStyleSheet()
     
-    # Custom style for name/header
+    # Custom style for name/header - large, bold, centered with brand color
     name_style = ParagraphStyle(
         'CustomTitle',
         parent=styles['Heading1'],
@@ -47,7 +48,7 @@ def create_resume():
         fontName='Helvetica-Bold'
     )
     
-    # Custom style for section headers
+    # Custom style for section headers - consistent branding with borders
     section_style = ParagraphStyle(
         'SectionHeader',
         parent=styles['Heading2'],
@@ -61,7 +62,7 @@ def create_resume():
         borderPadding=5
     )
     
-    # Custom style for contact info
+    # Custom style for contact information - centered and readable
     contact_style = ParagraphStyle(
         'Contact',
         parent=styles['Normal'],
@@ -70,7 +71,7 @@ def create_resume():
         spaceAfter=20
     )
     
-    # Custom style for job titles
+    # Custom style for job titles and project names - bold and prominent
     job_title_style = ParagraphStyle(
         'JobTitle',
         parent=styles['Normal'],
@@ -79,7 +80,7 @@ def create_resume():
         spaceAfter=6
     )
     
-    # Custom style for company/institution names
+    # Custom style for company/institution names - distinguishable from job titles
     company_style = ParagraphStyle(
         'Company',
         parent=styles['Normal'],
@@ -89,7 +90,7 @@ def create_resume():
         spaceAfter=4
     )
     
-    # Custom style for dates
+    # Custom style for dates - subtle but clear
     date_style = ParagraphStyle(
         'Date',
         parent=styles['Normal'],
@@ -98,7 +99,7 @@ def create_resume():
         spaceAfter=8
     )
     
-    # Custom style for bullet points
+    # Custom style for bullet points - proper indentation and spacing
     bullet_style = ParagraphStyle(
         'Bullet',
         parent=styles['Normal'],
@@ -108,206 +109,189 @@ def create_resume():
         bulletIndent=10
     )
     
-    # Story list to hold all content
+    # Story list to hold all content elements for PDF generation
     story = []
     
     # Header Section with Name and Contact Information
     story.append(Paragraph("ANURAG MISHRA", name_style))
     
+    # Contact information with actual details and professional title
     contact_info = """
-    <b>Data Science Graduate | Machine Learning Enthusiast</b><br/>
-    📧 officiallyanurag1@gmail.com | 📱 +91 9911210461<br/>
-    🔗 linkedin.com/in/anuragmishra02 | 💻 github.com/OPanurag<br/>
-    📍 Gurgaon, Haryan, India
+    <b>Data Scientist & ML Engineer | LLM Specialist</b><br/>
+    📧 officiallyanurag1@gmail.com | 📱 +91-9911210461<br/>
+    🔗 linkedin.com/in/anuragmishra02/ | 💻 github.com/OPanurag<br/>
+    📍 California, US (Open to Global Opportunities)
     """
     story.append(Paragraph(contact_info, contact_style))
     
-    # Professional Summary Section
+    # Professional Summary Section - Updated with actual experience and skills
     story.append(Paragraph("PROFESSIONAL SUMMARY", section_style))
     summary_text = """
-    Recent Computer Science graduate from VIT with specialization in Data Science and Machine Learning. 
-    Passionate about transforming complex data into actionable insights through statistical analysis, 
-    predictive modeling, and data visualization. Proficient in Python, R, SQL, and modern ML frameworks 
-    including TensorFlow and PyTorch. Seeking to leverage analytical skills and technical expertise 
-    in a challenging data science role to drive business growth and innovation.
+    Data Scientist and ML Engineer with hands-on experience developing and deploying scalable LLM-based 
+    solutions & ML models in production environments. Skilled in designing sustainable ML pipelines, optimizing 
+    model performance, & translating complex data into strategic insights. Adept with modern NLP frameworks, 
+    cloud platforms (GCP) & MLOps best practices to drive data-driven decision-making & automation at scale.
     """
     story.append(Paragraph(summary_text, styles['Normal']))
     story.append(Spacer(1, 12))
     
-    # Education Section
-    story.append(Paragraph("EDUCATION", section_style))
+    # Technical Skills Section - Updated with actual technology stack
+    story.append(Paragraph("TECHNICAL STACK AND SKILLS", section_style))
     
-    # Education details
-    story.append(Paragraph("Bachelor of Technology in Computer Science & Engineering Specialisation in Artificial Intelligence and Machine Learning", job_title_style))
-    story.append(Paragraph("Vellore Institute of Technology (VIT)", company_style))
-    story.append(Paragraph("2021 - 2025 | Percentage: 83.5%", date_style))
-    
-    education_details = [
-        "Specialized in Data Science and Machine Learning with focus on statistical analysis and LLM",
-        "Relevant Coursework: Data Structures, Algorithms, Database Management, Machine Learning, Deep Learning, Big Data Analytics",
-        "Final Year Project: Lane Detection System using Deep Learning",
-        "Active member of Omdena Contributors Club, Data Science Club and participated in multiple technical workshops"
-    ]
-    
-    for detail in education_details:
-        story.append(Paragraph(f"• {detail}", bullet_style))
-    
-    story.append(Spacer(1, 12))
-    
-    # Technical Skills Section
-    story.append(Paragraph("TECHNICAL SKILLS", section_style))
-    
-    # Create skills table for better organization
+    # Create skills table for better organization with actual skills
     skills_data = [
-        ['Programming Languages:', 'Python, R, SQL, JavaScript, Java, C++'],
-        ['Data Science Libraries:', 'Pandas, NumPy, Scikit-learn, TensorFlow, PyTorch, Keras'],
-        ['Data Visualization:', 'Matplotlib, Seaborn, Plotly, Tableau, Power BI'],
-        ['Databases:', 'MySQL, PostgreSQL, MongoDB, SQLite'],
-        ['Cloud & Tools:', 'AWS, Google Cloud Platform, Docker, Git, Jupyter Notebook'],
-        ['Machine Learning:', 'Supervised Learning, Unsupervised Learning, Deep Learning, NLP, Computer Vision'],
-        ['Statistical Analysis:', 'Hypothesis Testing, Regression Analysis, Time Series Analysis, A/B Testing']
+        ['Programming Languages:', 'Python, R, Bash, Git, HTML'],
+        ['Data Science:', 'Pandas, Scikit-Learn, Transformers, LLM, Flask, PyTorch, TensorFlow, MLOps'],
+        ['Tools:', 'JIRA, Notion, Jupyter, Power BI, Tableau, Git, Docker, Kubernetes, NLTK, ZenML'],
+        ['Cloud Platforms:', 'Google Cloud Platform (GCP), Amazon Web Services (AWS)'],
+        ['Databases:', 'SQL, Milvus Vector DB'],
+        ['Data Analytics:', 'Seaborn, Dask, Matplotlib, Plotly, Bokeh, SciPy, Spacy']
     ]
     
+    # Configure skills table layout and styling
     skills_table = Table(skills_data, colWidths=[2*inch, 4.5*inch])
     skills_table.setStyle(TableStyle([
-        ('FONTNAME', (0, 0), (0, -1), 'Helvetica-Bold'),
-        ('FONTSIZE', (0, 0), (-1, -1), 10),
-        ('VALIGN', (0, 0), (-1, -1), 'TOP'),
-        ('LEFTPADDING', (0, 0), (-1, -1), 0),
-        ('RIGHTPADDING', (0, 0), (-1, -1), 6),
-        ('TOPPADDING', (0, 0), (-1, -1), 3),
-        ('BOTTOMPADDING', (0, 0), (-1, -1), 3),
+        ('FONTNAME', (0, 0), (0, -1), 'Helvetica-Bold'),  # Bold labels
+        ('FONTSIZE', (0, 0), (-1, -1), 10),               # Consistent font size
+        ('VALIGN', (0, 0), (-1, -1), 'TOP'),              # Top alignment
+        ('LEFTPADDING', (0, 0), (-1, -1), 0),             # No left padding
+        ('RIGHTPADDING', (0, 0), (-1, -1), 6),            # Right padding for spacing
+        ('TOPPADDING', (0, 0), (-1, -1), 3),              # Top padding
+        ('BOTTOMPADDING', (0, 0), (-1, -1), 3),           # Bottom padding
     ]))
     
     story.append(skills_table)
     story.append(Spacer(1, 12))
     
-    # Projects Section
-    story.append(Paragraph("KEY PROJECTS", section_style))
+    # Professional Experience Section - Updated with actual work experience
+    story.append(Paragraph("PROFESSIONAL EXPERIENCE", section_style))
     
-    # Project 1
-    story.append(Paragraph("Customer Churn Prediction Model", job_title_style))
-    story.append(Paragraph("Technologies: Python, Scikit-learn, XGBoost, Pandas, Matplotlib", company_style))
-    story.append(Paragraph("Jan 2024 - Mar 2024", date_style))
+    # Current Position - Kounsel
+    story.append(Paragraph("Graduate Data Scientist", job_title_style))
+    story.append(Paragraph("Kounsel – https://kounsel.io | California, US", company_style))
+    story.append(Paragraph("Oct 2024 – Present", date_style))
     
-    project1_details = [
-        "Developed machine learning model to predict customer churn with 92% accuracy using ensemble methods",
-        "Implemented feature engineering techniques and hyperparameter tuning for optimal performance",
-        "Created comprehensive data visualization dashboard for stakeholder presentation",
-        "Deployed model using Flask API with real-time prediction capabilities"
+    # Kounsel experience details
+    kounsel_details = [
+        "Utilized GCP and specialized NLP libraries to scale and optimize the LLM development process",
+        "Developing a Large Language Model (LLM) focused on medical benefits, especially in recipe and diet generation",
+        "Extracting and structuring nutritional data from diverse sources to build a large-scale ingredient nutrition dataset",
+        "Collaborated with medical professionals & researchers ensuring accuracy & relevance of dietary recommendations"
     ]
     
-    for detail in project1_details:
+    # Add each detail as a bullet point
+    for detail in kounsel_details:
         story.append(Paragraph(f"• {detail}", bullet_style))
     
     story.append(Spacer(1, 8))
     
-    # Project 2
-    story.append(Paragraph("Social Media Sentiment Analysis System", job_title_style))
-    story.append(Paragraph("Technologies: Python, BERT, TensorFlow, Flask, BeautifulSoup", company_style))
-    story.append(Paragraph("Sep 2023 - Dec 2023", date_style))
+    # Previous Position - Omdena
+    story.append(Paragraph("Machine Learning Engineer – Intern", job_title_style))
+    story.append(Paragraph("Omdena – https://www.omdena.com | California, US", company_style))
+    story.append(Paragraph("Jul 2024 – Sep 2024", date_style))
     
-    project2_details = [
-        "Built real-time sentiment analysis system for social media posts using BERT and LSTM models",
-        "Implemented web scraping techniques to collect and preprocess social media data",
-        "Achieved 89% accuracy in sentiment classification across multiple social platforms",
-        "Developed RESTful API for integration with external applications"
+    # Omdena experience details
+    omdena_details = [
+        "Worked on 'AudioShield' project to distinguish deepfake audio from original audio samples",
+        "Utilized XGBoost to optimize audio threat detection, reducing false positives by 25%",
+        "Enhanced audio classification model with a 20% accuracy improvement through feature engineering and tuning"
     ]
     
-    for detail in project2_details:
+    # Add each detail as a bullet point
+    for detail in omdena_details:
+        story.append(Paragraph(f"• {detail}", bullet_style))
+    
+    story.append(Spacer(1, 12))
+    
+    # Hands-On Projects Section - Updated with actual projects
+    story.append(Paragraph("HANDS-ON PROJECTS", section_style))
+    
+    # Project 1 - AudioShield
+    story.append(Paragraph("AudioShield: Deepfake Audio Detection", job_title_style))
+    story.append(Paragraph("Technologies: Python, XGBoost, Audio Processing, Hugging Face", company_style))
+    story.append(Paragraph("Deployed: https://huggingface.co/spaces/savinshynu/audioshield-hugg", date_style))
+    
+    # AudioShield project details
+    audioshield_details = [
+        "Developed an audio classification model to detect deepfake audio, deployed on Hugging Face",
+        "Deepfake audio classification model through feature engineering and model tuning",
+        "Fine-tuned XGBoost for better threat detection with improved accuracy metrics"
+    ]
+    
+    for detail in audioshield_details:
         story.append(Paragraph(f"• {detail}", bullet_style))
     
     story.append(Spacer(1, 8))
     
-    # Project 3
-    story.append(Paragraph("Medical Image Classification using Deep Learning", job_title_style))
-    story.append(Paragraph("Technologies: Python, PyTorch, OpenCV, ResNet, CNN", company_style))
-    story.append(Paragraph("May 2023 - Aug 2023", date_style))
+    # Project 2 - Singapore Energy Analysis
+    story.append(Paragraph("Singapore: Recycled Energy Saved", job_title_style))
+    story.append(Paragraph("Technologies: Python, Data Analytics, Visualization, Statistical Analysis", company_style))
+    story.append(Paragraph("GitHub: https://github.com/OPanurag/Singapore_Recycled_Energy_Saved.git", date_style))
     
-    project3_details = [
-        "Developed CNN-based system for medical image classification with 95% accuracy",
-        "Implemented transfer learning using ResNet50 architecture for improved performance",
-        "Applied data augmentation techniques to enhance model robustness",
-        "Created user-friendly interface for medical professionals to upload and analyze images"
+    # Singapore project details
+    singapore_details = [
+        "Analyzed 18+ years of recycling and waste data to quantify energy savings and trends",
+        "Revealed energy savings of up to 500 GWh annually from five waste types, supporting sustainability decisions",
+        "Recommended a strategy that could reduce landfill dependency by 30%"
     ]
     
-    for detail in project3_details:
-        story.append(Paragraph(f"• {detail}", bullet_style))
-    
-    story.append(Spacer(1, 12))
-    
-    # Experience Section
-    story.append(Paragraph("EXPERIENCE", section_style))
-    
-    # Internship Experience
-    story.append(Paragraph("Data Analytics Intern", job_title_style))
-    story.append(Paragraph("Tech Startup (Remote)", company_style))
-    story.append(Paragraph("Jun 2023 - Aug 2023", date_style))
-    
-    internship_details = [
-        "Analyzed customer behavior patterns and market segmentation using statistical methods",
-        "Developed automated ETL pipelines processing 50GB+ of customer data daily",
-        "Created interactive dashboards for stakeholder reporting using Plotly and Streamlit",
-        "Contributed to data-driven decision making that improved customer retention by 15%",
-        "Collaborated with cross-functional teams in agile development environment"
-    ]
-    
-    for detail in internship_details:
+    for detail in singapore_details:
         story.append(Paragraph(f"• {detail}", bullet_style))
     
     story.append(Spacer(1, 8))
     
-    # Research Experience
-    story.append(Paragraph("Data Science Research Assistant", job_title_style))
-    story.append(Paragraph("VIT University", company_style))
-    story.append(Paragraph("Jan 2024 - May 2024", date_style))
+    # Project 3 - AI Chatbot
+    story.append(Paragraph("Generative AI Chat Bot", job_title_style))
+    story.append(Paragraph("Technologies: Python, NLP, Generative AI, Web Integration", company_style))
+    story.append(Paragraph("GitHub: https://github.com/OPanurag/AI_ChatBot_System", date_style))
     
-    research_details = [
-        "Led team of 4 students in developing ML solution for predicting academic performance",
-        "Analyzed dataset of 10,000+ student records using advanced statistical techniques",
-        "Implemented and compared 5 different machine learning algorithms for optimal results",
-        "Presented research findings at university symposium and documented methodology in research paper"
+    # Chatbot project details
+    chatbot_details = [
+        "Developed a chatbot using NLP that handles 1,000+ monthly interactions with environment-personalized responses",
+        "Boosted engagement by 35% through personalization based on 5 environmental and historical data factors",
+        "Integrated chatbot into web platforms for seamless deployment"
     ]
     
-    for detail in research_details:
+    for detail in chatbot_details:
         story.append(Paragraph(f"• {detail}", bullet_style))
     
-    story.append(Spacer(1, 12))
+    story.append(Spacer(1, 8))
     
-    # Achievements Section
-    story.append(Paragraph("ACHIEVEMENTS & CERTIFICATIONS", section_style))
-    
-    achievements = [
-        "<b>2nd Place Winner</b> - National Data Science Hackathon (200+ participants) - Developed fraud detection system",
-        "<b>Google Data Analytics Professional Certificate</b> - Completed comprehensive data analytics program",
-        "<b>Deep Learning Specialization</b> - Coursera (Andrew Ng) - 5-course specialization completed",
-        "<b>AWS Machine Learning Specialty</b> - Currently pursuing cloud ML certification",
-        "<b>Kaggle Competitions</b> - Participated in 10+ competitions with top 25% rankings",
-        "<b>Technical Publications</b> - Co-authored 2 research papers on machine learning applications"
-    ]
-    
-    for achievement in achievements:
-        story.append(Paragraph(f"• {achievement}", bullet_style))
+    # Additional projects mention
+    story.append(Paragraph("Additional Portfolio", job_title_style))
+    story.append(Paragraph("12+ Projects covering AI Engineer, ML Engineer, Data Analyst & Data Scientist roles", bullet_style))
     
     story.append(Spacer(1, 12))
     
-    # Additional Information Section
-    story.append(Paragraph("ADDITIONAL INFORMATION", section_style))
+    # Education Section - Updated with actual education details
+    story.append(Paragraph("EDUCATION", section_style))
     
-    additional_info = [
-        "<b>Languages:</b> English (Fluent), Hindi (Native), Tamil (Conversational)",
-        "<b>Interests:</b> Machine Learning Research, Data Visualization, Open Source Contributions",
-        "<b>Volunteer Work:</b> Data Science Mentor for junior students, Technical Workshop Organizer",
-        "<b>Availability:</b> Immediately available for full-time positions globally",
-        "<b>Work Authorization:</b> Indian citizen, open to relocation and visa sponsorship"
+    # Education details
+    story.append(Paragraph("Bachelor's of Technology - Computer Science Engineering", job_title_style))
+    story.append(Paragraph("Specialization in Artificial Intelligence and Machine Learning", job_title_style))
+    story.append(Paragraph("Vellore Institute of Technology", company_style))
+    story.append(Paragraph("Percentage: 83.5%", date_style))
+    
+    story.append(Spacer(1, 12))
+    
+    # Certifications and Training Section - Updated with actual certifications
+    story.append(Paragraph("CERTIFICATIONS AND TRAININGS", section_style))
+    
+    # List of actual certifications
+    certifications = [
+        "<b>Data Science</b> – IBM",
+        "<b>Python</b> – Google",
+        "<b>Applied Machine Learning in Python</b> – University of Michigan",
+        "<b>SQL</b> – Kaggle"
     ]
     
-    for info in additional_info:
-        story.append(Paragraph(f"• {info}", bullet_style))
+    # Add each certification as a bullet point
+    for cert in certifications:
+        story.append(Paragraph(f"• {cert}", bullet_style))
     
-    # Footer with generation date
+    # Footer with generation date and professional note
     story.append(Spacer(1, 20))
-    footer_text = f"<i>Resume generated on {datetime.now().strftime('%B %d, %Y')}</i>"
+    footer_text = f"<i>Resume generated on {datetime.now().strftime('%B %d, %Y')} | Available for immediate opportunities globally</i>"
     footer_style = ParagraphStyle(
         'Footer',
         parent=styles['Normal'],
@@ -317,7 +301,7 @@ def create_resume():
     )
     story.append(Paragraph(footer_text, footer_style))
     
-    # Build the PDF document
+    # Build the PDF document with error handling
     try:
         doc.build(story)
         print(f"✅ Resume successfully generated: {filename}")
@@ -330,11 +314,12 @@ def create_resume():
 def main():
     """
     Main function to execute resume generation
+    Includes dependency checking and success reporting
     """
     print("🚀 Starting resume generation for Anurag Mishra...")
-    print("📝 Creating professional PDF resume...")
+    print("📝 Creating professional PDF resume with actual experience and projects...")
     
-    # Check if required library is available
+    # Check if required ReportLab library is available
     try:
         from reportlab.lib.pagesizes import letter
         print("✅ ReportLab library found")
@@ -343,22 +328,24 @@ def main():
         print("   pip install reportlab")
         return
     
-    # Generate the resume
+    # Generate the resume with actual professional details
     success = create_resume()
     
+    # Provide detailed feedback on generation results
     if success:
         print("\n🎉 Resume generation completed successfully!")
         print("📋 The resume includes:")
-        print("   • Professional summary and contact information")
-        print("   • Educational background from VIT")
-        print("   • Comprehensive technical skills")
-        print("   • Detailed project descriptions with technologies")
-        print("   • Work experience and internships")
-        print("   • Achievements and certifications")
-        print("   • Additional information for recruiters")
+        print("   • Current professional summary as Data Scientist & ML Engineer")
+        print("   • Actual work experience at Kounsel and Omdena")
+        print("   • Real technical skills and technology stack")
+        print("   • Deployed projects with GitHub and live demo links")
+        print("   • VIT education details with actual percentage")
+        print("   • Verified certifications from IBM, Google, University of Michigan, and Kaggle")
         print("\n💼 Ready to share with potential employers worldwide!")
+        print("🌍 Updated with current California location and global availability!")
     else:
         print("\n❌ Resume generation failed. Please check the error messages above.")
 
+# Execute the script when run directly
 if __name__ == "__main__":
     main()
