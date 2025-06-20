@@ -474,7 +474,7 @@ function initializeTypingEffect() {
     if (!typingElement) return;
     
     const texts = [
-        'Data Science Graduate | Machine Learning Enthusiast',
+        'Data Scientist | Data Analyst | Machine Learning Engineer',
         'Python Developer | Statistical Analyst',
         'AI Researcher | Data Visualization Expert',
         'Problem Solver | Innovation Driver'
