@@ -727,23 +727,20 @@ html {
 
 /* Timeline Date Badge */
 .timeline-date {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
+    display: inline-block;
     background: var(--primary-color);
     color: white;
     padding: 0.4rem 0.8rem;
     border-radius: 15px;
     font-size: 0.75rem;
     font-weight: 600;
-    z-index: 2;
     box-shadow: var(--shadow-sm);
     white-space: nowrap;
+    margin-top: 0.5rem;
 }
 
 .card-content {
     padding: 2rem;
-    padding-top: 3rem; /* Extra space for date badge */
 }
 
 .card-header {
@@ -773,7 +770,6 @@ html {
 .card-info {
     flex: 1;
     min-width: 0;
-    padding-right: 6rem; /* Space for date badge */
 }
 
 .card-info h4 {
@@ -1792,18 +1788,9 @@ html {
     }
     
     .timeline-date {
-        position: static;
-        display: inline-block;
-        margin-bottom: 1rem;
-        margin-top: 0.5rem;
-    }
-    
-    .card-info {
-        padding-right: 0; /* Remove right padding on mobile */
-    }
-    
-    .card-content {
-        padding-top: 2rem; /* Reset top padding on mobile */
+        display: block;
+        margin-top: 0.75rem;
+        margin-bottom: 0;
     }
     
     .experience-column .timeline-card::after,
